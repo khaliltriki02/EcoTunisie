@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/eco-tourism#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefGastro">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceGastronomique"/>
+    <rdfs:label>PrefGastro</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuisine locale</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RecommandationEco">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:label>RecommandationEco</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Séjour écoresponsable à Hammamet</description>
+    <ecoScore rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.92</ecoScore>
+    <note rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</note>
+    <baseeSur rdf:resource="http://example.org/eco-tourism#PrefNature"/>
+    <recommandeVoyage rdf:resource="http://example.org/eco-tourism#Hammamet"/>
+    <recommandeActivite rdf:resource="http://example.org/eco-tourism#RandonneeZaghouan"/>
+    <recommandeHebergement rdf:resource="http://example.org/eco-tourism#EcolodgeTestour"/>
+    <recommandeTransport rdf:resource="http://example.org/eco-tourism#TrainSNCFT"/>
+    <recommandeRestauration rdf:resource="http://example.org/eco-tourism#RestaurantBioTunis"/>
+    <recommandeLieu rdf:resource="http://example.org/eco-tourism#Carthage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ecoScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>ecoScore</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#accessibilitePMR">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>accessibilitePMR</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nom</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#proposeActivite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>proposeActivite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Famille">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Famille</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Voyageur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Hammamet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#DestinationCôtière"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hammamet</nom>
+    <pays rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tunisie</pays>
+    <accessiblePar rdf:resource="http://example.org/eco-tourism#TrainSNCFT"/>
+    <contient rdf:resource="http://example.org/eco-tourism#PlageHammamet"/>
+    <possedeHebergement rdf:resource="http://example.org/eco-tourism#HotelHammamet"/>
+    <proposeActivite rdf:resource="http://example.org/eco-tourism#YogaHammamet"/>
+    <possedeRestauration rdf:resource="http://example.org/eco-tourism#RestaurantBioTunis"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#desserviPar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>desserviPar</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Taxi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Taxi</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPrivé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#transportDessert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>transportDessert</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#accessiblePar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>accessiblePar</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#aPourPreference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>aPourPreference</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#telephone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>telephone</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#possedeHebergement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>possedeHebergement</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantBio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RestaurantBio</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeLieu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>recommandeLieu</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#prenom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>prenom</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Guide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Guide</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Personne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#capaciteTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>capaciteTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TransportPartagé">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>TransportPartagé</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#scoreRecommandation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>scoreRecommandation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantVeganTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RestaurantVegan"/>
+    <rdfs:label>RestaurantVeganTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restaurant vegan</nom>
+    <typeCuisine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vegan</typeCuisine>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#EcolodgeTestour">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Écolodge"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Écolodge Testour</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">120</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DestinationRurale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DestinationRurale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DestinationUrbaine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DestinationUrbaine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Restauration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Restauration</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#contientLieu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contientLieu</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <owl:inverseOf rdf:resource="http://example.org/eco-tourism#situeDans"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/eco-tourism#contient"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#situeDans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>situeDans</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Groupe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Groupe</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Voyageur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#tarifGuide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>tarifGuide</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Auberge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Auberge</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#seDerouleDans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>seDerouleDans</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Activité"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Bardo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Musée"/>
+    <rdfs:label>Bardo</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Musée du Bardo</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#frequenceTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>frequenceTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#accessiblePMRTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>accessiblePMRTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#SiteArchéologique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SiteArchéologique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Activité">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Activité</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#utilise">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>utilise</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Artisanat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Artisanat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéCulturelle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#travailleDans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>travailleDans</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#produitsLocaux">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>produitsLocaux</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#region">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>region</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ArtisanatNabeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Artisanat"/>
+    <rdfs:label>ArtisanatNabeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Artisanat de Nabeul</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionDéchets">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>GestionDéchets</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Covoiturage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Covoiturage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPartagé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ReductionCO2Ex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RéductionCO2"/>
+    <rdfs:label>ReductionCO2Ex</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Réduction des émissions</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#possedeRestauration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>possedeRestauration</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Destination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Destination</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceAventure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceAventure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Monument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Monument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéCulturelle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéCulturelle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#descriptionDestination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>descriptionDestination</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MobilitéDurable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MobilitéDurable</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TransportPrivé">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>TransportPrivé</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VeloVert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Vélo"/>
+    <rdfs:label>VeloVert</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vélo</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RandonneeZaghouan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Randonnée"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Randonnée Zaghouan</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30</prix>
+    <niveauDifficulte rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moyen</niveauDifficulte>
+    <seDerouleDans rdf:resource="http://example.org/eco-tourism#Ichkeul"/>
+    <respecte rdf:resource="http://example.org/eco-tourism#BiodiversiteEx"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#langue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>langue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantLocalNabeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RestaurantLocal"/>
+    <rdfs:label>RestaurantLocalNabeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restaurant Local Nabeul</nom>
+    <typeCuisine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tunisienne</typeCuisine>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Ecotourisme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Ecotourisme</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéNature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#commentaireRecommandation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>commentaireRecommandation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéBienEtre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéBienEtre</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#note">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>note</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TransportPublic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>TransportPublic</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeActivite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>recommandeActivite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#CovoiturageTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Covoiturage"/>
+    <rdfs:label>CovoiturageTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Covoiturage</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VisiteMonument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VisiteMonument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéCulturelle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nomLieu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nomLieu</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#dureeVisite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>dureeVisite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#optionVegan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>optionVegan</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantVegetarienTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RestaurantVegetarien"/>
+    <rdfs:label>RestaurantVegetarienTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restaurant végétarien Tunis</nom>
+    <typeCuisine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Végétarienne</typeCuisine>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Camping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Camping</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#horaireOuverture">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>horaireOuverture</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TramTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Tramway"/>
+    <rdfs:label>TramTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tramway</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeRestauration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>recommandeRestauration</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#niveauPopularite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>niveauPopularite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#transportRelie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>transportRelie</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Tozeur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#DestinationDésertique"/>
+    <rdfs:label>Tozeur</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tozeur</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeHebergement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>recommandeHebergement</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#EconomieLocale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>EconomieLocale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>recommandeTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#accompagnePar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>accompagnePar</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Touriste"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Guide"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#email">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>email</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MarcheAlimentaireTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#MarchéAlimentaire"/>
+    <rdfs:label>MarcheAlimentaireTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marché alimentaire de Tunis</nom>
+    <adresse rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tunis</adresse>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionEauEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#GestionEau"/>
+    <rdfs:label>GestionEauEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Économie d’eau</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Bus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Bus</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPublic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#concerneDestination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>concerneDestination</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#dureeTrajet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>dureeTrajet</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantBioTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RestaurantBio"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restaurant Bio Tunis</nom>
+    <typeCuisine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bio</typeCuisine>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#specialite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>specialite</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#baseeSur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>baseeSur</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Carthage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#SiteArchéologique"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carthage</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#typeCuisine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>typeCuisine</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#latitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>latitude</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Touriste">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Touriste</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Personne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Personne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Personne</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#niveauDifficulte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>niveauDifficulte</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Festival">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Festival</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéCulturelle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Couple">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Couple</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Voyageur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#KayakTabarka">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ActivitéAventure"/>
+    <rdfs:label>KayakTabarka</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kayak</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Ahmed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#VoyageurIndividuel"/>
+    <rdfs:label>Ahmed</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ahmed</nom>
+    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</age>
+    <aPourPreference rdf:resource="http://example.org/eco-tourism#PrefNature"/>
+    <visite rdf:resource="http://example.org/eco-tourism#Hammamet"/>
+    <utilise rdf:resource="http://example.org/eco-tourism#TrainSNCFT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#contient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contient</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VoitureEco">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Voiture"/>
+    <rdfs:label>VoitureEco</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Voiture</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#languesParlees">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>languesParlees</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Écoresponsabilité">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Écoresponsabilité</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#age">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>age</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Train">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Train</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPublic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#saisonIdeale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>saisonIdeale</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Randonnée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Randonnée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéNature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantVegan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RestaurantVegan</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Sara">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Touriste"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sara</nom>
+    <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</age>
+    <aPourPreference rdf:resource="http://example.org/eco-tourism#PrefCulture"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#CyclismeTabarka">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ActivitéSportive"/>
+    <rdfs:label>CyclismeTabarka</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cyclisme</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#guide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>guide</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Touriste"/>
+    <owl:inverseOf rdf:resource="http://example.org/eco-tourism#accompagnePar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#mangeDans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>mangeDans</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#adresseRestaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>adresseRestaurant</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Voyageur">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Voyageur</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Personne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#adresseLieu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>adresseLieu</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nomGuide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nomGuide</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VisiteBardo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#VisiteMusée"/>
+    <rdfs:label>VisiteBardo</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visite du Bardo</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Musée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Musée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MaisonDHôte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MaisonDHôte</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Hôtel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Hôtel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantTraditionnelSidiBou">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#RestaurantTraditionnel"/>
+    <rdfs:label>RestaurantTraditionnelSidiBou</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restaurant traditionnel</nom>
+    <typeCuisine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tunisienne</typeCuisine>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#EconomieLocaleEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#EconomieLocale"/>
+    <rdfs:label>EconomieLocaleEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soutien aux producteurs locaux</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandeVoyage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>recommandeVoyage</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/eco-tourism#concerneDestination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionEnergie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>GestionEnergie</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Transport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transport</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#pays">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>pays</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#AubergeTabarka">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Auberge"/>
+    <rdfs:label>AubergeTabarka</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auberge Tabarka</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ObservationFaune">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ObservationFaune</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéNature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nomDestination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nomDestination</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TransportDoux">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>TransportDoux</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefSport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceSportive"/>
+    <rdfs:label>PrefSport</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#typeCuisineTexte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>typeCuisineTexte</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#prix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>prix</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#SiteHistorique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SiteHistorique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MobiliteDurableEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#MobilitéDurable"/>
+    <rdfs:label>MobiliteDurableEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mobilité douce</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Tunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#DestinationUrbaine"/>
+    <rdfs:label>Tunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tunis</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéGastronomique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéGastronomique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#optionVegetarienne">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>optionVegetarienne</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#experienceAnnees">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>experienceAnnees</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#certifie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>certifie</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantVegetarien">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RestaurantVegetarien</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Plage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Plage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DestinationMontagneuse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DestinationMontagneuse</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#longitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>longitude</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Destination"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MarchéAlimentaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MarchéAlimentaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restauration"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nomRestaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nomRestaurant</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#respecte">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>respecte</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Activité"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#BiodiversiteEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ProtectionBiodiversité"/>
+    <rdfs:label>BiodiversiteEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protection de la biodiversité</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#BusTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Bus"/>
+    <rdfs:label>BusTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bus</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceBienEtre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceBienEtre</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#YogaHammamet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ActivitéBienEtre"/>
+    <rdfs:label>YogaHammamet</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yoga</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionEau">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>GestionEau</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Vélo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Vélo</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportDoux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionDechetsEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#GestionDéchets"/>
+    <rdfs:label>GestionDechetsEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tri et recyclage</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>EcoTourismOntology</rdfs:label>
+    <rdfs:label xml:lang="fr">Ontologie du tourisme éco-responsable</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MarchePied">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Marche"/>
+    <rdfs:label>MarchePied</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marche à pied</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ObservationIchkeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ObservationFaune"/>
+    <rdfs:label>ObservationIchkeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Observation des oiseaux</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#horairesRestaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>horairesRestaurant</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#emissionCO2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>emissionCO2</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GuideAli">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Guide"/>
+    <rdfs:label>GuideAli</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ali</nom>
+    <telephone rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20111222</telephone>
+    <guide rdf:resource="http://example.org/eco-tourism#Sara"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#HotelHammamet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Hôtel"/>
+    <rdfs:label>HotelHammamet</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hôtel Hammamet</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">180</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantTraditionnel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RestaurantTraditionnel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TaxiTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Taxi"/>
+    <rdfs:label>TaxiTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taxi</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#adresse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>adresse</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#alternativeA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:label>alternativeA</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Ichkeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ParcNaturel"/>
+    <rdfs:label>Ichkeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parc national de l’Ichkeul</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#EcotourismeIchkeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Ecotourisme"/>
+    <rdfs:label>EcotourismeIchkeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Écotourisme Ichkeul</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéSportive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéSportive</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefAventure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceAventure"/>
+    <rdfs:label>PrefAventure</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aventure</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#dateRecommandation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>dateRecommandation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#procheDe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:label>procheDe</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MarchéLocal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MarchéLocal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#utiliseTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>utiliseTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/eco-tourism#utilise"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefBienEtre">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceBienEtre"/>
+    <rdfs:label>PrefBienEtre</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bien-être</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#FestivalCarthage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Festival"/>
+    <rdfs:label>FestivalCarthage</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Festival de Carthage</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Préférence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Préférence</rdfs:label>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#prixEntree">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>prixEntree</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceCulturelle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceCulturelle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Takrouna">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#DestinationRurale"/>
+    <rdfs:label>Takrouna</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Takrouna</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ObservationFlore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ObservationFlore</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéNature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RestaurantLocal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RestaurantLocal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ParcNaturel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ParcNaturel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Voiture">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Voiture</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPrivé"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MonumentBourguiba">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Monument"/>
+    <rdfs:label>MonumentBourguiba</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monument</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ville">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>ville</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#prixMoyenRepas">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>prixMoyenRepas</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#visite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:label>visite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceSportive">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceSportive</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceNature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceNature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nomTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nomTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DestinationCôtière">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DestinationCôtière</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MaisonHoteSidiBou">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#MaisonDHôte"/>
+    <rdfs:label>MaisonHoteSidiBou</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maison d’hôte Sidi Bou Saïd</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#AinDraham">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#DestinationMontagneuse"/>
+    <rdfs:label>AinDraham</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ain Draham</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#capacite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>capacite</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Recommandation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recommandation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#prixTransport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>prixTransport</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Transport"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VisiteMusée">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VisiteMusée</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#ActivitéCulturelle"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#descriptionLieu">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>descriptionLieu</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#LieuTouristique"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MarcheCentral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#MarchéLocal"/>
+    <rdfs:label>MarcheCentral</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marché central</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#CampingIchkeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Camping"/>
+    <rdfs:label>CampingIchkeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Camping Ichkeul</nom>
+    <prix rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30</prix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ObservationFloreIchkeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ObservationFlore"/>
+    <rdfs:label>ObservationFloreIchkeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Observation de la flore</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#MedinaTunis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#SiteHistorique"/>
+    <rdfs:label>MedinaTunis</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Médina de Tunis</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Hébergement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Hébergement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Restaurant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Restaurant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Restauration"/>
+    <owl:disjointWith rdf:resource="http://example.org/eco-tourism#MarchéAlimentaire"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Marche">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Marche</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportDoux"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PlageHammamet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Plage"/>
+    <rdfs:label>PlageHammamet</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plage de Hammamet</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PréférenceGastronomique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PréférenceGastronomique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Préférence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DegustationNabeul">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#ActivitéGastronomique"/>
+    <rdfs:label>DegustationNabeul</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dégustation locale</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#restaurantSitueA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>restaurantSitueA</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Restaurant"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#nationalite">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>nationalite</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>description</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéAventure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéAventure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#DestinationDésertique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>DestinationDésertique</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Destination"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ActivitéNature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ActivitéNature</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Activité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#recommandationPour">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>recommandationPour</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Recommandation"/>
+    <rdfs:range rdf:resource="http://example.org/eco-tourism#Personne"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#ProtectionBiodiversité">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ProtectionBiodiversité</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VoyageurIndividuel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VoyageurIndividuel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Voyageur"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#budget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>budget</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/eco-tourism#Personne"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Tramway">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Tramway</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#TransportPublic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#TrainSNCFT">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#Train"/>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Train</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefCulture">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceCulturelle"/>
+    <rdfs:label>PrefCulture</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Patrimoine et musées</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#RéductionCO2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>RéductionCO2</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Écoresponsabilité"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#PrefNature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#PréférenceNature"/>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nature et paysages</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#VisiteCarthage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#VisiteMonument"/>
+    <rdfs:label>VisiteCarthage</rdfs:label>
+    <nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visite de Carthage</nom>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#duree">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>duree</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#Écolodge">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Écolodge</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/eco-tourism#Hébergement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#GestionEnergieEx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/eco-tourism#GestionEnergie"/>
+    <rdfs:label>GestionEnergieEx</rdfs:label>
+    <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Énergie renouvelable</description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/eco-tourism#LieuTouristique">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>LieuTouristique</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>

@@ -7,6 +7,7 @@ import Ontologie from './pages/Ontologie'
 import Auth from './pages/Auth'
 import Profile from './pages/Profile'
 import Preferences from './pages/Preferences'
+import GestionCatalogue from './pages/GestionCatalogue'
 import { Icon } from './components/ui'
 import { api } from './services/api'
 
@@ -26,7 +27,7 @@ function AppLayout() {
       <NavLink to="/accueil" className="logo"><Icon name="Leaf" size={21} />Eco<b>Tunisie</b></NavLink>
       <nav>
         <NavLink to="/accueil">Accueil</NavLink><NavLink to="/explorer">Explorer</NavLink><NavLink to="/recommandations">Recommandations</NavLink><NavLink to="/ontologie">Ontologie</NavLink>
-        {account ? <><NavLink to="/profil">Profil</NavLink><NavLink to="/preferences">Préférences</NavLink><button className="nav-logout" onClick={logout}>Déconnexion</button></> : <NavLink to="/compte">Connexion</NavLink>}
+        {account ? <><NavLink to="/profil">Profil</NavLink><NavLink to="/preferences">Préférences</NavLink><NavLink to="/gestion">Gestion</NavLink><button className="nav-logout" onClick={logout}>Déconnexion</button></> : <NavLink to="/compte">Connexion</NavLink>}
       </nav>
     </header>
     <main><Routes>
@@ -34,6 +35,7 @@ function AppLayout() {
       <Route path="/destination/:id" element={<Destination />} /><Route path="/recommandations" element={<Recommandations />} />
       <Route path="/ontologie" element={<Ontologie />} /><Route path="/compte" element={<Auth />} /><Route path="/profil" element={<Profile />} />
       <Route path="/preferences" element={<Preferences />} />
+      <Route path="/gestion" element={<GestionCatalogue />} />
     </Routes></main>
     <footer>Basé sur l’ontologie eco-tourism · éco-scores et émissions indicatifs</footer>
   </>

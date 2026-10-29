@@ -11,6 +11,9 @@ async function call(path, options = {}) {
 
 export const api = {
   list: (module, params = {}) => call(`/${module}?${new URLSearchParams(Object.entries(params).filter(([, v]) => v !== '' && v != null))}`),
+  create: (module, data) => call(`/${module}`, { method: 'POST', body: JSON.stringify(data) }),
+  update: (module, id, data) => call(`/${module}/${encodeURIComponent(id)}`, { method: 'PUT', body: JSON.stringify(data) }),
+  remove: (module, id) => call(`/${module}/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   destinations: () => call('/destinations'),
   question: (question) => call('/nlp/query', { method: 'POST', body: JSON.stringify({ question }) }),
   register: (email, password, profile = {}) => call('/auth/register', { method: 'POST', body: JSON.stringify({ ...profile, email, password }) }),

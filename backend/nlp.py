@@ -11,6 +11,8 @@ class FrenchQueryParser:
         if not question or not question.strip(): raise ValueError("Question vide")
         doc, text = self.nlp(question), question.lower()
         words = {
+            "ecoresponsabilites": ("écoresponsabilité", "ecoresponsabilite", "durable", "biodiversité", "déchets", "eau", "co2"),
+            "recommandations": ("recommandation", "recommande", "conseil de voyage"),
             "preferences": ("préférence", "preference", "mes goûts", "mes gouts"),
             "transports": ("transport", "train", "bus", "tramway", "taxi", "vélo", "velo", "covoiturage", "marche à pied"),
             "activites": ("activité", "activite", "randonnée", "randonnee", "kayak", "festival", "cyclisme", "visite", "observation"),
@@ -21,6 +23,7 @@ class FrenchQueryParser:
         module = next((name for name, values in words.items() if any(value in text for value in values)), "hebergements")
         params, intent = {}, "recherche"
         maps = {
+            "ecoresponsabilites": {"eau": "GestionEau", "déchets": "GestionDéchets", "biodiversité": "ProtectionBiodiversité", "co2": "RéductionCO2", "mobilité": "MobilitéDurable"},
             "preferences": {"nature": "PréférenceNature", "culture": "PréférenceCulturelle", "gastronom": "PréférenceGastronomique", "sport": "PréférenceSportive", "aventure": "PréférenceAventure", "bien-être": "PréférenceBienEtre"},
             "transports": {"train": "Train", "bus": "Bus", "tramway": "Tramway", "taxi": "Taxi", "covoiturage": "Covoiturage", "vélo": "Vélo", "velo": "Vélo", "marche": "Marche", "voiture": "Voiture"},
             "activites": {"randonnée": "Randonnée", "randonnee": "Randonnée", "kayak": "ActivitéAventure", "festival": "Festival", "cyclisme": "ActivitéSportive", "observation": "ActivitéNature", "culture": "ActivitéCulturelle", "sport": "ActivitéSportive"},

@@ -9,6 +9,8 @@ const MODULES = {
   Restauration: { api: 'restaurations', types: ['Restaurant', 'MarchéAlimentaire', 'RestaurantLocal', 'RestaurantTraditionnel', 'RestaurantBio', 'RestaurantVegetarien', 'RestaurantVegan'] },
   Transport: { api: 'transports', types: ['Train', 'Bus', 'Tramway', 'Taxi', 'Covoiturage', 'Vélo', 'Marche', 'Voiture'] },
   Activité: { api: 'activites', types: ['ActivitéNature', 'ActivitéSportive', 'ActivitéAventure', 'ActivitéCulturelle', 'ActivitéBienEtre', 'ActivitéGastronomique', 'Randonnée', 'Festival', 'Ecotourisme'] },
+  Destination: { api: 'destinations', types: ['DestinationUrbaine', 'DestinationCôtière', 'DestinationRurale', 'DestinationDésertique', 'DestinationMontagneuse'] },
+  Lieu: { api: 'lieux', types: ['Musée', 'SiteHistorique', 'Monument', 'Plage', 'MarchéLocal', 'SiteArchéologique', 'ParcNaturel'] },
 }
 
 export default function Explorer() {

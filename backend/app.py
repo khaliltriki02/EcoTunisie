@@ -8,6 +8,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 from routes.auth import auth_bp
+from routes.personnes import personnes_bp
+from routes.preferences import preferences_bp
 from routes.hebergements import hebergements_bp
 from routes.restaurations import restaurations_bp
 from routes.nlp import nlp_bp
@@ -27,13 +29,17 @@ def create_app(test_config=None):
     if not ontology_path.is_absolute(): ontology_path = BASE / ontology_path
     app.config.from_mapping(SECRET_KEY=os.getenv("SECRET_KEY", "dev-only-change-me"), DATABASE=str(database_path))
     if test_config: app.config.update(test_config)
-    CORS(app, origins=os.getenv("FRONTEND_ORIGIN", "http://localhost:5173"), supports_credentials=True)
+    # Le proxy Vite évite CORS en local ; ces origines couvrent aussi les appels directs.
+    configured_origin = os.getenv("FRONTEND_ORIGIN")
+    origins = [configured_origin] if configured_origin else ["http://localhost:5173", "http://127.0.0.1:5173"]
+    CORS(app, resources={r"/api/*": {"origins": origins}}, supports_credentials=True,
+         allow_headers=["Content-Type"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
     # RDFLib valide le modèle OWL ; Fuseki exécute les requêtes sur les données.
     app.ontology = Ontology(ontology_path)
     app.fuseki = Fuseki(os.getenv("FUSEKI_QUERY_URL", "http://localhost:3030/eco/query"), os.getenv("FUSEKI_UPDATE_URL", "http://localhost:3030/eco/update"))
     # Chaque blueprint porte son URL complète /api/... afin d'éviter que Flask
     # n'écrase son préfixe lors de l'enregistrement.
-    for blueprint in (auth_bp, system_bp, hebergements_bp, restaurations_bp, nlp_bp): app.register_blueprint(blueprint)
+    for blueprint in (auth_bp, personnes_bp, preferences_bp, system_bp, hebergements_bp, restaurations_bp, nlp_bp): app.register_blueprint(blueprint)
 
     @app.errorhandler(ValueError)
     def invalid(error): return jsonify(error=str(error)), 400

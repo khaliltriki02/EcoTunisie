@@ -56,3 +56,34 @@ def triples_from_data(module, item_id, data, ontology):
     if destination := data.get("destination"):
         iri_id(destination); relation = "possedeHebergement" if module == "hebergements" else "possedeRestauration"; triples.append(f"eco:{destination} eco:{relation} {item}")
     return " . ".join(triples) + " ."
+
+def person_triples(item_id, data):
+    """Triplets autorisés pour l'individu Personne défini dans l'ontologie."""
+    item = iri_id(item_id)
+    nom = str(data.get("nom", "")).strip()
+    if not nom:
+        raise ValueError("Le nom est obligatoire")
+    triples = [f"{item} rdf:type eco:Personne", f"{item} eco:nom {literal(nom)}"]
+    for field in ("prenom", "email", "telephone"):
+        value = str(data.get(field, "")).strip()
+        if value:
+            triples.append(f"{item} eco:{field} {literal(value)}")
+    if data.get("age") not in (None, ""):
+        age = int(data["age"])
+        if age < 0 or age > 130:
+            raise ValueError("L'âge doit être compris entre 0 et 130")
+        triples.append(f"{item} eco:age {age}")
+    return " . ".join(triples) + " ."
+
+PREFERENCE_TYPES = {"PréférenceNature", "PréférenceCulturelle", "PréférenceGastronomique", "PréférenceSportive", "PréférenceAventure", "PréférenceBienEtre"}
+
+def preference_triples(item_id, data, ontology):
+    """Triplets d'une préférence, selon les sous-classes déclarées dans le RDF."""
+    type_ = data.get("type")
+    if type_ not in PREFERENCE_TYPES or type_ not in ontology.classes:
+        raise ValueError("Type de préférence invalide")
+    description = str(data.get("description", "")).strip()
+    if not description:
+        raise ValueError("La description est obligatoire")
+    item = iri_id(item_id)
+    return f"{item} rdf:type eco:{type_} . {item} rdfs:label {literal(description)} . {item} eco:description {literal(description)} ."

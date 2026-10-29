@@ -1,17 +1,34 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { api } from '../services/api'
 
+const blankProfile = { nom: '', prenom: '', email: '', telephone: '', age: '' }
+
 export default function Auth() {
-  const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [message, setMessage] = useState(''); const [error, setError] = useState('')
-  const submit = async (mode) => {
-    setError(''); setMessage('')
-    try { const user = mode === 'register' ? await api.register(email, password) : await api.login(email, password); setMessage(`Connecté(e) : ${user.email}`) }
-    catch (e) { setError(e.message) }
+  const [mode, setMode] = useState('login')
+  const [profile, setProfile] = useState(blankProfile)
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
+  const change = (field) => (event) => setProfile({ ...profile, [field]: event.target.value })
+  const submit = async (event) => {
+    event.preventDefault(); setError('')
+    try {
+      const account = mode === 'register' ? await api.register(profile.email, password, profile) : await api.login(profile.email, password)
+      localStorage.setItem('ecoTunisieUser', JSON.stringify(account))
+      navigate('/accueil')
+    } catch (e) { setError(e.message) }
   }
-  return <><h1>Compte</h1><div className="panel form">
-    <label>Email<input type="email" value={email} onChange={e => setEmail(e.target.value)} required /></label>
-    <label>Mot de passe<input type="password" minLength="8" value={password} onChange={e => setPassword(e.target.value)} required /></label>
-    <div className="chips"><button className="btn" type="button" onClick={() => submit('login')}>Connexion</button><button className="btn" type="button" onClick={() => submit('register')}>Inscription</button><button className="chip" type="button" onClick={() => api.logout().then(() => setMessage('Déconnecté(e)')).catch(e => setError(e.message))}>Déconnexion</button></div>
-    {message && <p>{message}</p>}{error && <p className="muted">{error}</p>}
-  </div></>
+  return <section className="account-page auth-page">
+    <span className="eyebrow">EcoTunisie · compte voyageur</span><h1>Voyagez avec un profil <em>responsable</em></h1>
+    <p className="lead">Votre inscription crée un compte sécurisé et un individu <code>Personne</code> dans l’ontologie EcoTunisie.</p>
+    <div className="auth-tabs"><button className={mode === 'login' ? 'on' : ''} onClick={() => setMode('login')}>Connexion</button><button className={mode === 'register' ? 'on' : ''} onClick={() => setMode('register')}>Inscription</button></div>
+    <form className="panel profile-form" onSubmit={submit}>
+      {mode === 'register' && <><label>Nom<input value={profile.nom} onChange={change('nom')} required /></label><label>Prénom<input value={profile.prenom} onChange={change('prenom')} /></label></>}
+      <label>E-mail<input type="email" value={profile.email} onChange={change('email')} required /></label>
+      {mode === 'register' && <><label>Téléphone<input value={profile.telephone} onChange={change('telephone')} /></label><label>Âge<input type="number" min="0" max="130" value={profile.age} onChange={change('age')} /></label></>}
+      <label>Mot de passe<input type="password" value={password} onChange={e => setPassword(e.target.value)} minLength="8" required /></label>
+      <div className="form-actions"><button className="btn" type="submit">{mode === 'login' ? 'Se connecter' : 'Créer mon compte'}</button></div>
+    </form>{error && <p className="notice error">{error}</p>}
+  </section>
 }

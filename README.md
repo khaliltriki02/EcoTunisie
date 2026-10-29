@@ -8,7 +8,7 @@ Le frontend conserve son design React et l'écran **Explorer** lit désormais le
 
 - `eco-tourisme-tn/` : interface React/Vite.
 - `backend/app.py` : point d'entrée Flask et enregistrement des blueprints.
-- `backend/routes/` : un module par responsabilité (`hebergements.py`, `restaurations.py`, `auth.py`, `nlp.py`, `system.py`). Chaque module possède son propre CRUD ; les futurs modules des autres membres doivent suivre ce modèle.
+- `backend/routes/` : un module par responsabilité (`hebergements.py`, `restaurations.py`, `personnes.py`, `auth.py`, `nlp.py`, `system.py`). L'inscription crée un compte SQLite et un profil `Personne` dans Fuseki ; chaque profil est ensuite modifiable ou supprimable par son propriétaire.
 - `backend/services/` : éléments partagés (Fuseki/RDFLib, sécurité SPARQL et SQLite), à réutiliser sans duplication.
 - `backend/nlp.py` : analyse française déterministe avec spaCy (intention, destination, type et budget), puis application d'un template SPARQL contrôlé.
 - `ontologie finale.rdf` : source RDF/OWL fournie, inchangée.
@@ -54,6 +54,8 @@ Optionnellement, définir `VITE_API_URL=http://localhost:5000/api` dans `eco-tou
 | GET/PUT/DELETE | `/api/{module}/{id}` | Lire, modifier, supprimer (écriture authentifiée) |
 | POST | `/api/{module}` | Créer un individu RDF (authentifié) |
 | POST | `/api/auth/register`, `/api/auth/login`, `/api/auth/logout` | Inscription, session, déconnexion |
+| GET/POST/PUT/DELETE | `/api/personnes`, `/api/personnes/{id}` | CRUD de son individu `Personne` RDF (authentifié) |
+| GET/POST/PUT/DELETE | `/api/preferences`, `/api/preferences/{id}` | CRUD des préférences liées à sa `Personne` via `aPourPreference` (authentifié) |
 | POST | `/api/nlp/query` | Question française vers recherche SPARQL contrôlée |
 | GET | `/api/health` | Vérification de Fuseki |
 

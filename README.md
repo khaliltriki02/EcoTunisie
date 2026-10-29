@@ -1,28 +1,77 @@
-# EcoTunisie — front-end React (Vite)
+# Eco Tunisie — Hébergement et Restauration
 
-Application de tourisme éco-responsable en Tunisie, structurée sur l'ontologie `ontologie_tourisme_corrigee_protege.rdf`.
+Cette livraison couvre uniquement les modules **Hébergement** et **Restauration** de l'ontologie existante. Elle ne modifie pas `ontologie finale.rdf`.
 
-## Lancer
+Le frontend conserve son design React et l'écran **Explorer** lit désormais les résultats de Fuseki pour ces deux catégories. Il n'y a pas de repli vers les données de démonstration pour ces résultats : si Fuseki n'est pas disponible, l'interface signale l'erreur.
 
-```bash
-npm install
-npm run dev      # http://localhost:5173
-npm run build    # production → dist/
+## Architecture
+
+- `eco-tourisme-tn/` : interface React/Vite.
+- `backend/app.py` : point d'entrée Flask et enregistrement des blueprints.
+- `backend/routes/` : un module par responsabilité (`hebergements.py`, `restaurations.py`, `auth.py`, `nlp.py`, `system.py`). Chaque module possède son propre CRUD ; les futurs modules des autres membres doivent suivre ce modèle.
+- `backend/services/` : éléments partagés (Fuseki/RDFLib, sécurité SPARQL et SQLite), à réutiliser sans duplication.
+- `backend/nlp.py` : analyse française déterministe avec spaCy (intention, destination, type et budget), puis application d'un template SPARQL contrôlé.
+- `ontologie finale.rdf` : source RDF/OWL fournie, inchangée.
+
+Les écritures passent par les endpoints SPARQL Update de Fuseki. RDFLib charge l'ontologie au démarrage pour vérifier les classes RDF autorisées. Les mots de passe sont stockés avec le hachage Werkzeug, jamais en clair.
+
+## Installation
+
+1. Créer un dataset persistant nommé `eco` dans Apache Jena Fuseki, puis charger l'ontologie :
+
+```powershell
+curl.exe -X POST -H "Content-Type: application/rdf+xml" --data-binary "@ontologie finale.rdf" http://localhost:3030/eco/data
 ```
 
-## Structure
+2. Configurer et démarrer l'API :
 
-| Fichier | Rôle |
-|---|---|
-| `src/ontology/schema.js` | Hiérarchie de classes (subClassOf), propriétés objet, helpers `isA`, `descendantsOf` |
-| `src/data/kb.js` | Individus du RDF + individus d'extension (`ext: true`), préférences, profils |
-| `src/services/provider.js` | Accès aux données (interface provider-agnostic, `setProvider()` pour brancher SPARQL/API) |
-| `src/services/recommender.js` | Génère des individus `Recommandation` : 50 % éco-score, 35 % préférences, 15 % budget |
-| `src/pages/*` | Home, Explorer (filtres subsumption-aware), Destination, Recommandations, Ontologie |
+```powershell
+Copy-Item backend/.env.example backend/.env
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r backend/requirements.txt
+python -m spacy download fr_core_news_sm
+python backend/app.py
+```
 
-## Notes
+`SPACY_MODEL` peut rester absent : le module emploie alors le tokenizer français minimal de spaCy, mais le modèle `fr_core_news_sm` est recommandé.
 
-- Les éco-scores, émissions CO₂ (g/km/pers.) et prix absents du RDF sont **indicatifs** ; à remplacer par des données réelles.
-- Les individus `ext: true` complètent les destinations sans activité/hébergement dans le RDF.
-- Les coordonnées GPS sont approximatives.
-- Pour brancher un triple store, implémentez `destinations()`, `entities()`, `all()`, `byId()`, `query({cls, dest})` et appelez `setProvider(...)` dans `main.jsx`.
+3. Dans un second terminal, démarrer React :
+
+```powershell
+cd eco-tourisme-tn
+npm install
+npm run dev
+```
+
+Optionnellement, définir `VITE_API_URL=http://localhost:5000/api` dans `eco-tourisme-tn/.env`.
+
+## API REST
+
+| Méthode | Route | Rôle |
+| --- | --- | --- |
+| GET | `/api/hebergements`, `/api/restaurations` | Lecture et recherche (`q`, `type`, `destination`, `maxPrix`) |
+| GET/PUT/DELETE | `/api/{module}/{id}` | Lire, modifier, supprimer (écriture authentifiée) |
+| POST | `/api/{module}` | Créer un individu RDF (authentifié) |
+| POST | `/api/auth/register`, `/api/auth/login`, `/api/auth/logout` | Inscription, session, déconnexion |
+| POST | `/api/nlp/query` | Question française vers recherche SPARQL contrôlée |
+| GET | `/api/health` | Vérification de Fuseki |
+
+Exemple TALN :
+
+```json
+POST /api/nlp/query
+{ "question": "Quels restaurants vegan à Tunis à moins de 30 dinars ?" }
+```
+
+La réponse contient l'intention, les paramètres extraits, le nom du template et les résultats réellement retournés par Fuseki. Les paramètres sont validés contre les classes de l'ontologie et les littéraux sont échappés ; l'utilisateur ne peut donc pas envoyer du SPARQL brut.
+
+## Tests
+
+Après installation des dépendances :
+
+```powershell
+python -m unittest discover backend/tests -v
+```
+
+Ils couvrent les intentions et entités principales de la conversion TALN. Les tests d'intégration nécessitent un Fuseki démarré avec le dataset `eco` chargé, car l'application ne simule pas de résultats RDF.

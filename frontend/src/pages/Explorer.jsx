@@ -11,6 +11,8 @@ const MODULES = {
   Activité: { api: 'activites', types: ['ActivitéNature', 'ActivitéSportive', 'ActivitéAventure', 'ActivitéCulturelle', 'ActivitéBienEtre', 'ActivitéGastronomique', 'Randonnée', 'Festival', 'Ecotourisme'] },
   Destination: { api: 'destinations', types: ['DestinationUrbaine', 'DestinationCôtière', 'DestinationRurale', 'DestinationDésertique', 'DestinationMontagneuse'] },
   Lieu: { api: 'lieux', types: ['Musée', 'SiteHistorique', 'Monument', 'Plage', 'MarchéLocal', 'SiteArchéologique', 'ParcNaturel'] },
+  Écoresponsabilité: { api: 'ecoresponsabilites', types: ['MobilitéDurable', 'GestionEau', 'EconomieLocale', 'ProtectionBiodiversité', 'GestionEnergie', 'RéductionCO2', 'GestionDéchets'] },
+  Recommandation: { api: 'recommandations', types: [] },
 }
 
 export default function Explorer() {

@@ -43,10 +43,6 @@ export default function Home() {
         <h2>Les choix les plus sobres</h2>
         <div className="grid">{top.map((e) => <EntityCard key={e.id} e={e} />)}</div>
       </section>
-      <section className="panel landing-profile">
-        <div><span className="eyebrow">Votre espace</span><h2>Un profil relié à l’ontologie</h2><p>Créez votre identité voyageur, modifiez vos coordonnées ou supprimez-les à tout moment. Vos informations sont stockées comme un individu <code>Personne</code> dans Fuseki.</p></div>
-        <Link className="btn" to="/compte">Créer mon profil</Link>
-      </section>
     </>
   )
 }

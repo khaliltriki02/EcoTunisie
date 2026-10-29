@@ -26,7 +26,7 @@ function AppLayout() {
     <header className="nav">
       <NavLink to="/accueil" className="logo"><Icon name="Leaf" size={21} />Eco<b>Tunisie</b></NavLink>
       <nav>
-        <NavLink to="/accueil">Accueil</NavLink><NavLink to="/explorer">Explorer</NavLink><NavLink to="/recommandations">Recommandations</NavLink><NavLink to="/ontologie">Ontologie</NavLink>
+        <NavLink to="/accueil">Accueil</NavLink>{account && <><NavLink to="/explorer">Explorer</NavLink><NavLink to="/recommandations">Recommandations</NavLink></>}<NavLink to="/ontologie">Ontologie</NavLink>
         {account ? <><NavLink to="/profil">Profil</NavLink><NavLink to="/preferences">Préférences</NavLink><NavLink to="/gestion">Gestion</NavLink><button className="nav-logout" onClick={logout}>Déconnexion</button></> : <NavLink to="/compte">Connexion</NavLink>}
       </nav>
     </header>

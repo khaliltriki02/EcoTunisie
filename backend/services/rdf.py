@@ -63,7 +63,8 @@ def person_triples(item_id, data):
     nom = str(data.get("nom", "")).strip()
     if not nom:
         raise ValueError("Le nom est obligatoire")
-    triples = [f"{item} rdf:type eco:Personne", f"{item} eco:nom {literal(nom)}"]
+    # owl:NamedIndividual assure aussi la visibilité dans les vues « Individuals » de Protégé.
+    triples = [f"{item} rdf:type eco:Personne", f"{item} rdf:type <http://www.w3.org/2002/07/owl#NamedIndividual>", f"{item} eco:nom {literal(nom)}"]
     for field in ("prenom", "email", "telephone"):
         value = str(data.get(field, "")).strip()
         if value:

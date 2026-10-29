@@ -12,6 +12,8 @@ from routes.personnes import personnes_bp
 from routes.preferences import preferences_bp
 from routes.transports import transports_bp
 from routes.activites import activites_bp
+from routes.destinations import destinations_bp
+from routes.lieux import lieux_bp
 from routes.hebergements import hebergements_bp
 from routes.restaurations import restaurations_bp
 from routes.nlp import nlp_bp
@@ -41,7 +43,7 @@ def create_app(test_config=None):
     app.fuseki = Fuseki(os.getenv("FUSEKI_QUERY_URL", "http://localhost:3030/eco/query"), os.getenv("FUSEKI_UPDATE_URL", "http://localhost:3030/eco/update"))
     # Chaque blueprint porte son URL complète /api/... afin d'éviter que Flask
     # n'écrase son préfixe lors de l'enregistrement.
-    for blueprint in (auth_bp, personnes_bp, preferences_bp, transports_bp, activites_bp, system_bp, hebergements_bp, restaurations_bp, nlp_bp): app.register_blueprint(blueprint)
+    for blueprint in (auth_bp, personnes_bp, preferences_bp, transports_bp, activites_bp, destinations_bp, lieux_bp, system_bp, hebergements_bp, restaurations_bp, nlp_bp): app.register_blueprint(blueprint)
 
     @app.errorhandler(ValueError)
     def invalid(error): return jsonify(error=str(error)), 400
